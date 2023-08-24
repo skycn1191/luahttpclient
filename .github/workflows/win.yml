@@ -38,6 +38,12 @@ jobs:
       - name: Test
         shell: bash
         run: ctest -C ${{env.BUILD_TYPE}}
+        
+      - name: upload result
+        uses: actions/upload-artifact@v1
+        with:
+          name: my-artifact
+          path: ${{ github.workspace }}/luahttpclient
 
       - name: Status
         uses: Sibz/github-status-action@v1
